@@ -19,6 +19,7 @@ class StoreController extends Controller
 
     public function store_item(){
          $products = Store::join('categories', 'stores.category_id', '=', 'categories.id')
+                              ->
                               ->select('stores.*', 'categories.category_name  AS item_category')
                               ->latest()->get();
                               

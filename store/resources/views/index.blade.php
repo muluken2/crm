@@ -75,7 +75,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$store}}</h3>
+                <h3>{{$buy_store}}</h3>
 
                 <p>Buy Item</p>
               </div>
@@ -89,7 +89,7 @@
             <!-- small box -->
             <div class="small-box bg-dark">
               <div class="inner">
-                <h3>{{$store}}</h3>
+                <h3>{{$sell_store}}</h3>
 
                 <p>Sell Item</p>
               </div>

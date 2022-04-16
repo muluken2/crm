@@ -17,6 +17,7 @@ use App\Store;
 Route::get('/', function () {
 	 $products = Store::join('categories', 'stores.category_id', '=', 'categories.id')
                               ->select('stores.*', 'categories.category_name  AS cname')
+                              ->where('stores.user_id', '!=', Auth::user()->id)
                               ->get();
         return view('home', compact('products'));
    
@@ -46,6 +47,7 @@ Route::get('/add_to_cart/{id}', 'StoreController@getAddTocart')->name('add_to_ca
 Route::get('/store_deactive/{id}', 'StoreController@store_deactive')->name('store_deactive');
 Route::get('/store_delete/{id}', 'StoreController@store_delete')->name('store_delete');
 
+Route::group(['middleware' => 'role:Admin'], function() { 
 //Role
 Route::get('/add_role', 'RoleController@add_role')->name('add_role');
 Route::post('/role', 'RoleController@store')->name('role');
@@ -57,6 +59,7 @@ Route::get('/add_user', 'RoleController@add_user')->name('add_user');
 Route::post('/add_admin', 'RoleController@add_admin')->name('add_admin');
 Route::resource('user', 'RoleController');
 Route::resource('user', 'RoleController');
+});
 
 });
 
