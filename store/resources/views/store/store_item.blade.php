@@ -36,9 +36,9 @@
                                     <td>{{$product['item_category']}}</td>
                                     <td>
                                         @if($product['status'])
-                                        <a href="{{route('store_deactive', ['id'=>$product['id']])}}" class="btn btn-success m-1" id="deactivate_{{$product['id']}}">Deactivate</a> 
+                                        <a href="{{route('store_deactive', ['id'=>$product['id']])}}" class="btn btn-info m-1" id="deactivate_{{$product['id']}}">Deactivate</a> 
                                         @else
-                                          Deactivated
+                                          <a href="{{route('store_activate', ['id'=>$product['id']])}}" class="btn btn-success m-1" id="activate_{{$product['id']}}">Activate</a> 
                                         @endif
 
                                         <a href="{{route('store_delete', ['id'=>$product['id']])}}" class="btn btn-danger" id="delete_{{$product['id']}}">Delete</a>

@@ -19,7 +19,6 @@ class StoreController extends Controller
 
     public function store_item(){
          $products = Store::join('categories', 'stores.category_id', '=', 'categories.id')
-                              ->
                               ->select('stores.*', 'categories.category_name  AS item_category')
                               ->latest()->get();
                               
@@ -117,6 +116,14 @@ class StoreController extends Controller
 
        return redirect()->back()->with('message', 'Deactivate successfully');
     }
+     public function store_activate($id){
+       $store = Store::find($id);
+       $store->status = 1;
+       $store->save();
+
+       return redirect()->back()->with('message', 'Activate successfully');
+    }
+
     public function store_delete($id){
         Store::find($id)->delete();
 

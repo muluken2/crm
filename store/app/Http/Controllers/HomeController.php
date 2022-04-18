@@ -34,6 +34,7 @@ class HomeController extends Controller
      $products = Store::join('categories', 'stores.category_id', '=', 'categories.id')
                               ->select('stores.*', 'categories.category_name  AS cname')
                               ->get();
+                              
         $user = User::count();
         $role = Role::count();
         $category = Category::count();

@@ -8,9 +8,21 @@
                         </div>
                     @endif
   <div class="row">
+    <div class="col-md-3 col-sm-4">
+
+        <div class="list-group">
+          @foreach($categories as $category)
+          @php
+          $activate = ($category['id'] == $id)? "active": "";
+          @endphp
+          <a href="{{route('category_', ['id'=>$category['id']])}}" class="list-group-item list-group-item-action {{$activate}}" > {{ $category['category_name']}} </a>
+          @endforeach
+<!--   <li class="list-group-item active" aria-current="true">An active item</li> -->
+        </div> 
+    </div>
+
 @if($products)
   @foreach($products as $product)
-
   <div class="col-sm-4 col-md-3">
     <div class="img-fluid img-thumbnail text-center">
       <img src="/item_image/{{$product->item_image}}" alt="book" style="max-height: 150px" class="img-responsive">
@@ -26,10 +38,8 @@
       </div>
     </div>
   </div>
-
 @endforeach
 @endif
 </div>
-
                
 @endsection
