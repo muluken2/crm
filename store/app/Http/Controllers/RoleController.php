@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Role;
 use App\User;
 use App\Role_user; 
+use Redirect;
 use DataTables;
 
 class RoleController extends Controller
@@ -56,12 +57,12 @@ class RoleController extends Controller
             'password' => Hash::make($request['password']),
         ]);
         
-        Role_user::create([
- 		'role_id' => $role->id,
- 		'user_id' => $user->id,
-        ]);
+            Role_user::create([
+     		         'role_id' => $role->id,
+     		         'user_id' => $user->id,
+            ]);
         
-        return view('home')->with('message', 'Admin user added successfully'); 
+        return Redirect::route('home'); 
 
     }
 

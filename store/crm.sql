@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 02:56 PM
+-- Generation Time: Apr 19, 2022 at 04:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -137,9 +137,10 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, 2, 1, NULL, NULL),
-(3, 2, 2, NULL, NULL),
-(4, 1, 4, '2022-04-15 22:50:08', '2022-04-15 22:50:08');
+(5, 2, 5, '2022-04-18 23:24:23', '2022-04-18 23:24:23'),
+(6, 2, 6, '2022-04-18 23:30:05', '2022-04-18 23:30:05'),
+(7, 2, 7, '2022-04-18 23:32:44', '2022-04-18 23:32:44'),
+(8, 2, 8, '2022-04-18 23:33:57', '2022-04-18 23:33:57');
 
 -- --------------------------------------------------------
 
@@ -192,9 +193,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Muluken Hussen Asebel', 'muluken2@outlook.com', NULL, '$2y$10$..xJWnUoPzev4MdXh.oguOCPIUJfA80Px5PFUFjl3M8WxXzb7qUXG', NULL, '2022-04-13 05:01:42', '2022-04-13 05:01:42'),
-(2, 'Muluken Hussen Asebel', 'muluken2@gmail.com', NULL, '$2y$10$DnWqe4yjQi0xluYnyz1rKuLtWmpph5.jaTXGz/uIc.Ij194PuzWGO', NULL, '2022-04-13 15:13:22', '2022-04-13 15:13:22'),
-(4, 'Muluken Hussen Asebel', 'muluken@outlook.com', NULL, '$2y$10$SMcR8fdzmrTATFwfRUBOwO.VfNqGVxpKs5ooFx07ZkQf.EP0tENFS', NULL, '2022-04-15 22:50:08', '2022-04-15 22:50:08');
+(5, 'Admin', 'admin@gmail.com', NULL, '$2y$10$NJy6ApGPwat9FcTlnhTqMuEflChx3MgkxZOSaQXGQIpIVmdn3M4HO', NULL, '2022-04-18 23:24:23', '2022-04-18 23:24:23'),
+(6, 'Client One', 'client1@gmail.com', NULL, '$2y$10$SXm.MESegPKr6xq.rvudzusl0n2ncPRpg3wDbJgGWvQGYhUSEHVve', NULL, '2022-04-18 23:30:05', '2022-04-18 23:30:05'),
+(7, 'Client Two', 'client2@gmail.com', NULL, '$2y$10$7o/zBut051QYXiDElbrqFej7OV1JVsKVmxz1R7BwLmhaXxjuJPDUW', NULL, '2022-04-18 23:32:43', '2022-04-18 23:32:43'),
+(8, 'Client Three', 'client3@gmail.com', NULL, '$2y$10$lTk/A1AzfviYjc.46j2tj.PpKQyogFNHqdBUCcyIznJ9an1OPYx9K', NULL, '2022-04-18 23:33:57', '2022-04-18 23:33:57');
 
 --
 -- Indexes for dumped tables
@@ -284,7 +286,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `stores`
@@ -296,7 +298,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
