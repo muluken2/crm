@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card card-success card-outline">
                 <div class="card-header">{{ __('Item Registration') }}</div>
 
@@ -13,8 +13,9 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
-
-                    <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
                         @csrf
                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="form-group row">
@@ -90,6 +91,29 @@
                             </div>
                         </div>
                     </form>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered data-table" width="100%">
+                            <thead>
+                                <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Category</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @foreach($products as $product)
+                                    <td> {{ $product['item_name'] }}</td>
+                                    <td> {{ $product['item_price'] }}</td>
+                                    <td> {{ $product['item_category'] }}</td>
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 </div>
             </div>
         </div>

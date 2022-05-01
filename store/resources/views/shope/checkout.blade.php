@@ -8,7 +8,8 @@
                 <div class="card-header">{{ __('Checkout') }}</div>
                 <div class="card-body">
                    <h3>Your Total: {{$total}} ETB</h3>
-                   <form action="{{ route('checkout') }}" method="post">
+                   <form action="{{ route('order') }}" method="post">
+                     @csrf
      <div class="row">
         
         <div class="col-md-12 order-md-1">
@@ -69,7 +70,7 @@
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
                 <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Choose...</option>
+                  <option>Ethiopia</option>
                   <option>United States</option>
                 </select>
                 <div class="invalid-feedback">
@@ -79,7 +80,7 @@
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
                 <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Choose...</option>
+                  <option>Addis Ababa</option>
                   <option>California</option>
                 </select>
                 <div class="invalid-feedback">
@@ -88,7 +89,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="zip" placeholder="" value="125" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -96,11 +97,11 @@
             </div>
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
+              <input type="checkbox" class="custom-control-input" id="same-address" checked="true">
               <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
             </div>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
+              <input type="checkbox" class="custom-control-input" id="save-info" checked>
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
             <hr class="mb-4">
@@ -155,7 +156,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Order Item</button>
           </form>
         </div>
       </div>

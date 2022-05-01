@@ -57,6 +57,7 @@ Route::get('/store_item', 'StoreController@store_item')->name('store_item');
 //Session 
 Route::get('/shopping_cart', 'StoreController@shopping_cart')->name('shopping_cart');
 Route::get('/checkout', 'StoreController@checkout')->name('checkout');
+Route::post('/checkout', 'StoreController@order')->name('order');
 Route::get('reduce/{id}', 'StoreController@destroy')->name('reduce');
 Route::get('reduce_all/{id}', 'StoreController@destroy_all')->name('reduce_all');
 Route::get('/add_to_cart/{id}', 'StoreController@getAddTocart')->name('add_to_cart');

@@ -59,6 +59,8 @@ class Cart
           $this->items[$id]['item_price'] = 0;
           $this->items[$id]['qty'] = 0;
           unset($this->items[$id]);
+
+          
         }
       
     }

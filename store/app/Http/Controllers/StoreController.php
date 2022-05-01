@@ -13,8 +13,15 @@ use Auth;
 class StoreController extends Controller
 {
      public function create(){
+      $us = Auth::user()->id;
      	$catagories = Category::get();
-    	return view("store.item_create", compact('catagories'));
+
+       $products = Store::join('categories', 'stores.category_id', '=', 'categories.id')
+                              ->select('stores.*', 'categories.category_name  AS item_category')
+                              ->where('user_id', $us)
+                              ->latest()->get();
+
+    	return view("store.item_create", compact('catagories', 'products'));
     }
 
     public function store_item(){
@@ -90,7 +97,11 @@ class StoreController extends Controller
         $cart = new Cart($oldCart);
         $cart->substruct($product, $product->id);
 
-        $request->session()->put('cart', $cart);
+        if(count($cart->items) == 0){
+        Session::forget('cart');
+        }else {
+          $request->session()->put('cart', $cart);
+        }
         //dd($request->session()->get('cart'));
         return redirect()->back()->with('message', 'One Item reduce successfully');
     }
@@ -103,8 +114,12 @@ class StoreController extends Controller
         $oldCart = Session::has('cart')? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->substruct_all($product, $product->id);
-
-        $request->session()->put('cart', $cart);
+        if(count($cart->items) == 0){
+        Session::forget('cart');
+        }else {
+          $request->session()->put('cart', $cart);
+        }
+        
         //dd($request->session()->get('cart'));
         return redirect()->back()->with('message', 'All Item reduce successfully');
     }
@@ -130,4 +145,8 @@ class StoreController extends Controller
         return redirect()->back()->with('message', 'Delete successfully');
     }
 
+   public function order(Request $request){
+        Session::forget('cart');
+        return redirect()->back()->with('message', 'Thank You for purchasing! We hope that you will come again');
+    }
 }

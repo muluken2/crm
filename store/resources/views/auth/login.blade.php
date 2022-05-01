@@ -70,4 +70,36 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Sample User Account (For testing purpose)') }}</div>
+                <div class="card-body">
+                   <table width="100%">
+                       <thead>
+                           <th>E-Mail Address</th>
+                           <td>admin@gmail.com</td>
+                           <th>password</th>
+                           <td>Admin123</td>
+                       </thead>
+                        <thead>
+                           <th>E-Mail Address</th>
+                           <td>client1@gmail.com</td>
+                           <th>password</th>
+                           <td>Client123</td>
+                       </thead>
+                        <thead>
+                           <th>E-Mail Address</th>
+                           <td>client2@gmail.com</td>
+                           <th>password</th>
+                           <td>Client123</td>
+                       </thead>
+                   </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -41,7 +41,7 @@
                                           <a href="{{route('store_activate', ['id'=>$product['id']])}}" class="btn btn-success m-1" id="activate_{{$product['id']}}">Activate</a> 
                                         @endif
 
-                                        <a href="{{route('store_delete', ['id'=>$product['id']])}}" class="btn btn-danger" id="delete_{{$product['id']}}">Delete</a>
+                                        <a href="{{route('store_delete', ['id'=>$product['id']])}}" class="btn btn-danger" id="delete_{{$product['id']}}" onClick="if(confirm('Are you sure, you want to delete ?'))return true;else return false;">Delete</a>
                                     </td>
                                 </tr>
                                 <?php $i++; ?>
